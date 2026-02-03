@@ -107,7 +107,7 @@ Una lista concatenata deve fornire metodi per manipolare i dati. Si dividono in 
 | Aggiunta di un oggetto in una posizione qualsiasi | Leggere un oggetto di posizione nota |
 | Cancellazione di un oggetto noto | Stabilire se la lista è vuota o meno |
 | Cancellazione di un oggetto di posizione nota | Conoscere la dimensione |
-| Ricerca dell'esistenza di un oggetto noto | Sapere se durante la lettura si è giunti al termine della lista |
+| Ricerca dell'esistenza di un oggetto noto | |
 | Determinazione della posizione di un oggetto noto | |
 | Aggiunta di una lista in coda a una lista data | |
 
@@ -580,33 +580,3 @@ Restituisco 3
 **Costo**: O(n) - devo scorrere tutta la lista.
 
 ---
-
-## Sapere se si è giunti al termine della lista
-
-**Cosa fa**: Durante una scansione, verifica se il nodo corrente è l'ultimo.
-
-**Prototipo**:
-```java
-boolean hasNext()
-```
-
-**Come funziona**:
-
-```
-  HEAD
-    │
-    ▼
-┌───────┬───────┐     ┌───────┬───────┐     ┌───────┬───────┐
-│   A   │ NEXT  │────▶│   B   │ NEXT  │────▶│   C   │ NULL  │
-└───────┴───────┘     └───────┴───────┘     └───────┴───────┘
-                                                  ▲
-                                                  │
-                                            nodo corrente
-                                            NEXT == NULL
-                                            hasNext() → false
-```
-
-1. Se il NEXT del nodo corrente è NULL → restituisco false (siamo alla fine)
-2. Altrimenti → restituisco true (ci sono altri nodi)
-
-**Costo**: O(1) - basta controllare il riferimento NEXT.
